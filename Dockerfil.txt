@@ -1,0 +1,34 @@
+cd Downloads/
+<<<<<<< HEAD
+    8  cd Downloads/
+=======
+    2  ls
+    3  mkdir -p ~/miniconda3
+    4  wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda3/miniconda.sh
+    5  bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3
+    6  rm ~/miniconda3/miniconda.sh
+    7  ls
+    8  cd Downloads/
+    9  ls
+   10  sudo dpkg -i code_1.93.1-1726079302_amd64.deb 
+   11  python --version
+   12  python3 --version
+   13  conda activate ragpipeline
+   14  conda --version
+   15  conda create -n ragpipeline python=3.10 - y
+   16  python -m venv ragpipeline
+   17  python3 -m venv ragpipeline
+   18  pip install virtualenv
+   19  sudo apt install python3-pip
+   20  virtualenv ragpipeline
+   21  pip install virtualenv
+   22  pip3 install virtualenv
+   23  virtualenv ragpipeline
+>>>>>>> 765e624fac5be00d4fe89795e26e4e9807b1a12c
+   24  sudo apt install python3-virtualenv
+   25  virtualenv ragpipeline
+   26  source ragpipeline/bin/activate
+   27  pip install -r requirements.txt
+   28  clear
+   29  python app.py
+   30  history
