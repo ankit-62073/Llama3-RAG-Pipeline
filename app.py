@@ -1,6 +1,5 @@
 import asyncio
 import random
-import numpy as np
 
 import streamlit as st
 from dotenv import load_dotenv
