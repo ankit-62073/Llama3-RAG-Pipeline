@@ -107,9 +107,14 @@ async def ask_question(chain: Runnable, question: str, session_id: str):
             include_names=["context_retriever", "chain_answer"],
         ):
             event_type = event["event"]
+                
+            if event_type == "on_retriever_start":
+                logging.info("Fetching response from vectorstore.")
+
             if event_type == "on_retriever_end":
                 logging.info("Retriever has finished.")
                 yield event["data"]["output"]
+                
             if event_type == "on_chain_stream":
                 # logging.info("Streaming from chain.")
                 yield event["data"]["chunk"].content

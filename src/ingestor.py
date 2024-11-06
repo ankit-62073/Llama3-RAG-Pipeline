@@ -12,7 +12,7 @@ from src.config import Config
 from logger.logging import logging
 
 class IngestionPipeline:
-    # Initializing the
+    # Initializing the Embedding model
     def __init__(self):
         try:
             logging.info("Initializing FastEmbedEmbeddings...")
