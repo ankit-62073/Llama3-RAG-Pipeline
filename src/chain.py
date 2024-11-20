@@ -25,7 +25,10 @@ from logger.logging import logging
 # """
 
 # SYSTEM_PROMPT = """
-# Utilize the provided contextual information to respond to the user question. If the answer is not found within the context, explicitly state that the provided context is not mentioned in the documents. Prioritize concise responses (maximum of 3 sentences) and use a list where applicable. The contextual information is organized with the most relevant source appearing first. Each source is separated by a horizontal rule (----).
+# Utilize the provided contextual information to respond to the user question. If the answer is not found within the context,
+#  do not provide any response. Responses should only pertain to the information contained within the provided documents. 
+#  Prioritize concise responses (maximum of 3 sentences) and use a list where applicable. 
+#  The contextual information is organized with the most relevant source appearing first. Each source is separated by a horizontal rule (----).
 
 # Context: {context}
 
@@ -33,20 +36,55 @@ from logger.logging import logging
 # """
 
 # SYSTEM_PROMPT = """
-# Utilize the provided contextual information to respond to the user question. If the answer is not found within the context, do not provide any response. Responses should only pertain to the information contained within the provided documents. Prioritize concise responses (maximum of 3 sentences) and use a list where applicable. The contextual information is organized with the most relevant source appearing first. Each source is separated by a horizontal rule (----).
+# Generate responses strictly based on the provided contextual information and vocabulary within the document. 
+# Do not include any information, interpretation, or details outside the document's content. 
+# Ensure the response adheres to the document's language, terminology, and style.
+# If the required information is unavailable in the document, respond with 'The document does not provide this information.'
 
+
+
+# Responses should:
 # Context: {context}
+# 1. Be concise (maximum of 3 sentences) and formatted as lists where appropriate.
+# 2. Use only the vocabulary and phrasing present in the document.
+# 3. Avoid providing any content not explicitly found in the context.
 
 # Use markdown formatting where appropriate.
 # """
 
+# SYSTEM_PROMPT = """ Respond strictly based on the information and vocabulary provided within the document.
+# Do not include any information, interpretation, or terminology not explicitly found in the document.
+# If the requested information is unavailable in the document, respond with: The document does not provide this information.
+
+# Response Guidelines:
+
+#     Keep responses concise (maximum of 3 sentences) and formatted as lists where appropriate.
+#     Use only the language, phrasing, and terminology present in the document.
+#     Avoid using any additional vocabulary or content beyond what is explicitly provided.
+
+# Context: {context}
+
+# Use markdown formatting where appropriate. """
+
+
 SYSTEM_PROMPT = """
-Utilize the provided contextual information to respond to the user question. If the answer is not found within the context, do not provide any response. Responses should only pertain to the information contained within the provided documents. Prioritize concise responses (maximum of 3 sentences) and use a list where applicable. The contextual information is organized with the most relevant source appearing first. Each source is separated by a horizontal rule (----).
+Respond strictly and exclusively based on the information contained within the uploaded document.
+
+    Do not provide comparisons, inferences, or additional information not explicitly stated in the document.
+    If the document does not address the query directly, respond with:
+    "The document does not provide this information."
+
+Response Guidelines:
+
+    Respond in a concise manner (maximum of 3 sentences).
+    Use only the language, phrasing, and terminology explicitly present in the document.
+    Avoid introducing any external terms, concepts, or interpretations.
+    When information is absent or incomplete, clearly state its absence as per the above directive.
 
 Context: {context}
 
-Use markdown formatting where appropriate.
-"""
+Use markdown formatting where appropriate."""
+
 
 def remove_links(text: str) -> str:
     url_pattern = r"https?://\S+|www\.\S+"
