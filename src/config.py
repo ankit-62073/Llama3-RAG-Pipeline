@@ -8,6 +8,7 @@ class Config:
         DATABASE_DIR = APP_HOME / "docs-db"
         DOCUMENTS_DIR = APP_HOME / "tmp"
         IMAGES_DIR = APP_HOME / "images"
+        VECTOR_STORES_DIR = APP_HOME / "vector-stores"
 
     class Database:
         DOCUMENTS_COLLECTION = "documents"

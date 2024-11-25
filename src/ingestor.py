@@ -36,7 +36,7 @@ class IngestionPipeline:
         except Exception as e:
             logging.exception("Failed to initialize components in IngestionPipeline: %s", e)
 
-    def ingest(self, doc_paths: List[Path]) -> VectorStore:
+    def ingest(self, doc_paths: List[Path], persist_directory: str = None) -> VectorStore:
         documents = []
         for doc_path in doc_paths:
             try:

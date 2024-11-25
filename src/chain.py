@@ -40,13 +40,31 @@ from logger.logging import logging
 # Use markdown formatting where appropriate.
 # """
 
+# SYSTEM_PROMPT = """
+# Utilize the provided contextual information to respond to the user question. If the answer is not found within the context, do not provide any response. Responses should only pertain to the information contained within the provided documents. Prioritize concise responses (maximum of 3 sentences) and use a list where applicable. The contextual information is organized with the most relevant source appearing first. Each source is separated by a horizontal rule (----).
+
+# Context: {context}
+
+# Use markdown formatting where appropriate.
+# """
+
 SYSTEM_PROMPT = """
-Utilize the provided contextual information to respond to the user question. If the answer is not found within the context, do not provide any response. Responses should only pertain to the information contained within the provided documents. Prioritize concise responses (maximum of 3 sentences) and use a list where applicable. The contextual information is organized with the most relevant source appearing first. Each source is separated by a horizontal rule (----).
+Respond strictly and exclusively based on the information contained within the uploaded document.
+
+    Do not provide comparisons, inferences, or additional information not explicitly stated in the document.
+    If the document does not address the query directly, respond with:
+    "The document does not provide this information."
+
+Response Guidelines:
+
+    Respond in a concise manner (maximum of 3 sentences).
+    Use only the language, phrasing, and terminology explicitly present in the document.
+    Avoid introducing any external terms, concepts, or interpretations.
+    When information is absent or incomplete, clearly state its absence as per the above directive.
 
 Context: {context}
 
-Use markdown formatting where appropriate.
-"""
+Use markdown formatting where appropriate."""
 
 def remove_links(text: str) -> str:
     url_pattern = r"https?://\S+|www\.\S+"
